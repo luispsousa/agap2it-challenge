@@ -15,5 +15,5 @@ export const fetchEpisode = (id) => async (dispatch) => {
 
 export const fetchEpisodes = (id) => async (dispatch) => {
   const { data } = await axios.get(`${baseURL}/shows/${id}/episodes`);
-  dispatch({ type: FETCH_EPISODES, episodes: data.slice(0, 6) });
+  dispatch({ type: FETCH_EPISODES, episodes: data });
 };

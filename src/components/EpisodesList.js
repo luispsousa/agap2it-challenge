@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const EpisodesList = ({ episodes }) => {
-  console.log(episodes);
   return (
     <ul>
       {episodes.map(({ id, name, image }) => (
