@@ -10,7 +10,7 @@ const useStyles = makeStyles(() => ({
     flexGrow: 1,
   },
   title: {
-    margin: '1rem 0',
+    margin: '2rem 0 3rem',
   },
 
   infoContainer: {
@@ -28,9 +28,6 @@ const HomeScreen = () => {
 
   const classes = useStyles();
 
-  /* const [currentPage, setCurrentPage] = useState(1);
-  const [episodesPerPage] = useState(10); */
-
   // Getting and destructuring the Show info
   const show = useSelector((state) => state.show);
   const { name, summary, image } = show;
@@ -43,17 +40,6 @@ const HomeScreen = () => {
     dispatch(fetchShow(6771));
     dispatch(fetchEpisodes(6771));
   }, [dispatch]);
-
-  // Calculating index of the first and last episodes to get the episodes for each page
-  /* const indexOfLastEpisode = currentPage * episodesPerPage;
-  const indexOfFirstEpisode = indexOfLastEpisode - episodesPerPage;
-  const currentEpisodes = episodes.slice(
-    indexOfFirstEpisode,
-    indexOfLastEpisode
-  ); */
-
-  // Gets the current page number from the Pagination component
-  /* const paginate = (pageNumber) => setCurrentPage(pageNumber); */
 
   return (
     <main className={classes.root}>
