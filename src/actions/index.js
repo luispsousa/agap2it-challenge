@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { FETCH_SHOW, FETCH_EPISODES, FETCH_EPISODE } from '../constants';
 
-const baseURL = 'http://api.tvmaze.com';
+const baseURL = 'https://api.tvmaze.com';
 
 export const fetchShow = (id) => async (dispatch) => {
   const { data } = await axios.get(`${baseURL}/shows/${id}`);
