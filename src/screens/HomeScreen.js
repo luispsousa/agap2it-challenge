@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Container, Grid, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { fetchShow, fetchEpisodes } from '../actions';
 import EpisodesList from '../components/EpisodesList';
-import Pagination from '../components/Pagination';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     flexGrow: 1,
   },
@@ -29,8 +28,8 @@ const HomeScreen = () => {
 
   const classes = useStyles();
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const [episodesPerPage] = useState(10);
+  /* const [currentPage, setCurrentPage] = useState(1);
+  const [episodesPerPage] = useState(10); */
 
   // Getting and destructuring the Show info
   const show = useSelector((state) => state.show);
@@ -46,15 +45,15 @@ const HomeScreen = () => {
   }, [dispatch]);
 
   // Calculating index of the first and last episodes to get the episodes for each page
-  const indexOfLastEpisode = currentPage * episodesPerPage;
+  /* const indexOfLastEpisode = currentPage * episodesPerPage;
   const indexOfFirstEpisode = indexOfLastEpisode - episodesPerPage;
   const currentEpisodes = episodes.slice(
     indexOfFirstEpisode,
     indexOfLastEpisode
-  );
+  ); */
 
   // Gets the current page number from the Pagination component
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  /* const paginate = (pageNumber) => setCurrentPage(pageNumber); */
 
   return (
     <main className={classes.root}>
@@ -79,13 +78,7 @@ const HomeScreen = () => {
             />
           </Grid>
           <Grid item xs={12}>
-            <Typography variant='h4'>Episodes: </Typography>
-            <EpisodesList episodes={currentEpisodes} />
-            <Pagination
-              episodesPerPage={episodesPerPage}
-              totalEpisodes={episodes.length}
-              paginate={paginate}
-            />
+            <EpisodesList episodes={episodes} />
           </Grid>
         </Grid>
       </Container>
